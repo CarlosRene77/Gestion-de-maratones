@@ -1,3 +1,4 @@
+
 'use strict';
 
 const app = require('./src/app');
@@ -17,13 +18,14 @@ async function start() {
       console.log(`[SEED] Roles verificados: ${resultado.roles.join(', ')}.`);
     }
 
-    server = app.listen(env.port, () => {
+    server = app.listen(env.port, '0.0.0.0', () => {
       console.log('');
       console.log('  MarathonHub API');
       console.log(`  Entorno:    ${env.nodeEnv}`);
       console.log(`  API:        http://localhost:${env.port}/api`);
       console.log(`  Swagger:    http://localhost:${env.port}/api-docs`);
       console.log(`  Salud:      http://localhost:${env.port}/health`);
+      console.log('  Red:        http://0.0.0.0:' + env.port);
       console.log('');
     });
   } catch (error) {
